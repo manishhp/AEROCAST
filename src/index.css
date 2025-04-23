@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-aero-darker text-white font-display;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .aero-button {
+    @apply relative flex items-center justify-center px-8 py-4 bg-aero-dark border border-aero-blue-500 text-white rounded-md overflow-hidden transition-all duration-300;
+  }
+  
+  .aero-button:before {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-aero-blue-600 opacity-0 transition-opacity duration-300;
+  }
+  
+  .aero-button:hover {
+    @apply shadow-aero transform scale-[1.02];
+  }
+  
+  .aero-button:hover:before {
+    @apply opacity-30;
+  }
+  
+  .aero-button:active {
+    @apply transform scale-[0.98];
+  }
+  
+  .aero-button.active {
+    @apply bg-aero-blue-700 border-aero-blue-400 shadow-aero;
+  }
+  
+  .aero-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .radar-bg {
+    @apply bg-radar-grid bg-[length:40px_40px];
+  }
+  
+  .glow-text {
+    @apply text-white drop-shadow-[0_0_10px_rgba(0,127,255,0.7)];
+  }
+}
