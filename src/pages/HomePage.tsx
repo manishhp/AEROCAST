@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CloudSun, CloudLightning, AlertTriangle, CheckCircle } from 'lucide-react';
+import { CloudSun, CloudLightning, AlertTriangle, CheckCircle, Map, ArrowLeft } from 'lucide-react'; // Added ArrowLeft
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import StatusIndicator from '../components/StatusIndicator';
@@ -22,6 +22,13 @@ const HomePage: React.FC = () => {
   return (
     <PageTransition>
       <div className="aero-container py-8 md:py-12">
+        {/* Add this back button */}
+        <div className="mb-6">
+          <Link to="/" className="flex items-center text-aero-blue-400 hover:text-aero-blue-300 transition-colors">
+            <ArrowLeft className="mr-2" />
+          </Link>
+        </div>
+        
         <div className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 glow-text">AEROCAST</h1>
           <p className="text-aero-blue-200 max-w-2xl mx-auto">
@@ -93,6 +100,22 @@ const HomePage: React.FC = () => {
               <CheckCircle className="w-12 h-12 mb-4 text-aero-success-400" />
               <h3 className="text-xl font-semibold mb-2">Cross-Check Confidence Report</h3>
               <p className="text-sm text-aero-blue-200">Verification and confidence assessment</p>
+            </Link>
+          </motion.div>
+
+          <motion.div 
+            whileHover="hover"
+            whileTap="tap"
+            variants={buttonVariants}
+            className="md:col-span-2"
+          >
+            <Link 
+              to="/weather-map" 
+              className="aero-button h-full flex flex-col items-center text-center"
+            >
+              <Map className="w-12 h-12 mb-4 text-aero-blue-300" />
+              <h3 className="text-xl font-semibold mb-2">Colour Coded Journey Outline</h3>
+              <p className="text-sm text-aero-blue-200">Visual representation of the flight path</p>
             </Link>
           </motion.div>
         </div>

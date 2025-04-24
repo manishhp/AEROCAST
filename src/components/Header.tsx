@@ -60,7 +60,7 @@ const Header: React.FC = () => {
             
             {location.pathname !== '/' && (
               <Link 
-                to="/" 
+                to="/dashboard" 
                 className="px-4 py-2 text-sm font-semibold border border-aero-blue-500 rounded-md hover:bg-aero-blue-900 transition-colors"
               >
                 Dashboard
